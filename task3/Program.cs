@@ -37,7 +37,6 @@ int[,] doubleArray = new int [m,n];
 FillMatrixRandom(doubleArray, 0, 30);
 PrintMatrix(doubleArray);
 
-Console.WriteLine(" ");
 
 int minNumber = doubleArray[0,0];
 int minColumns = 0;
@@ -54,22 +53,23 @@ for (int k = 0; k < doubleArray.GetLength(0); k++)
             }
         }
     }
-Console.WriteLine($"{minRows} {minColumns} {minNumber} ");
+Console.WriteLine
+($"Минимальное число в матрице равно {minNumber}, это число лежит в яйчейеках: [{minRows}, {minColumns}] ");
+Console.WriteLine("");
+Console.WriteLine("Новая матрица: ");
 int[,] newDoubleArray = new int [m-1,n-1];
 for (int z = 0; z < newDoubleArray.GetLength(0); z++)
     {
+        int z1=0;
+        int q1=0;
+        if (z >= minRows) z1 = z + 1;
+        else z1 = z;
+
         for (int q = 0; q < newDoubleArray.GetLength(1); q++)
         {
-            if (z == minRows) 
-            { 
-                newDoubleArray[z,q] = doubleArray[z+1,q];
-            }
-            if (q == minColumns) 
-            {   
-                newDoubleArray[z,q] = doubleArray[z,q+1];
-            }
-            else newDoubleArray[z,q] = doubleArray[z,q];
-            
+            if (q >= minColumns) q1 = q + 1;
+            else q1 = q;
+            newDoubleArray[z,q] = doubleArray[z1,q1];
         }
     }
 PrintMatrix(newDoubleArray);
