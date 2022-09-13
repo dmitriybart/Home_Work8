@@ -22,18 +22,18 @@ void PrintMatrix(int[,,] matrix)
 {
    for (int i = 0; i < matrix.GetLength(0); i++)
     {   
-        Console.WriteLine($"{i+1}-я плоскость трёхмерного массива: ");  
+        Console.WriteLine($"{i+1}-я плоскость трёхмерного массива: ");
+        Console.WriteLine(" ");  
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             for (int k = 0; k < matrix.GetLength(2); k++)
             {
-                Console.Write($"{matrix[i,j,k]}\t");
+                Console.WriteLine($"Элемент на позиции [{i}, {j}, {k}]: {matrix[i,j,k]}");
 
             }
-            Console.WriteLine(" ");
-            Console.WriteLine(" ");
+        Console.WriteLine(" ");
         }
-    
+    Console.WriteLine(" ");
     }
 }
 Console.Write("Введите число строк матрицы: ");
